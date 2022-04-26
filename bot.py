@@ -1,15 +1,13 @@
-from pyrogram import Client
 import os
+from pyrogram import Client
 
-TOKEN = os.environ.get("TOKEN", "")
+BOT_TOKEN = os.environ.get("TOKEN", "")
 
 APP_ID = int(os.environ.get("APP_ID", ""))
 
 API_HASH = os.environ.get("API_HASH", "")
 
-BOT_UN = os.environ.get("BOT_UN", "")
-
-FORCE_SUB = os.environ.get("FORCE_SUB", "")           
+FORCE_SUB = os.environ.get("FORCE_SUB", None)           
 
 if __name__ == "__main__" :
     plugins = dict(
