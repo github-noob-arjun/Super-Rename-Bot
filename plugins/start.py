@@ -12,7 +12,7 @@ async def start(client, message):
        await message.reply_text(
        text="**sorry bro നിങ്ങൾ ഞങ്ങളുടെ ചാനലിൽ ജോയിൻ ചെയ്തിട്ടില്ല താഴെയുള്ള ബട്ടനിൽ ക്ലിക്ക് ചെയ്ത് join ചെയ്യൂ എന്നിട്ട് വീണ്ടും start കൊടുക്കൂ 🙏**",
        reply_markup=InlineKeyboardMarkup([
-           [ InlineKeyboardButton(text="📢𝙹𝚘𝚒𝚗 𝙼𝚢 𝚄𝚙𝚍𝚊𝚝𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕📢", url=f"https://t.me/{client.invitelink}")]
+           [ InlineKeyboardButton(text="📢𝙹𝚘𝚒𝚗 𝙼𝚢 𝚄𝚙𝚍𝚊𝚝𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕📢", url=client.invitelink)]
            ])
        )
        return
@@ -39,20 +39,19 @@ async def send_doc(client, message):
        await message.reply_text(
        text="**sorry bro നിങ്ങൾ ഞങ്ങളുടെ ചാനലിൽ ജോയിൻ ചെയ്തിട്ടില്ല താഴെയുള്ള ബട്ടനിൽ ക്ലിക്ക് ചെയ്ത് join ചെയ്യൂ എന്നിട്ട് വീണ്ടും start കൊടുക്കൂ 🙏**",
        reply_markup=InlineKeyboardMarkup([
-           [ InlineKeyboardButton(text="📢𝙹𝚘𝚒𝚗 𝙼𝚢 𝚄𝚙𝚍𝚊𝚝𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕📢", url=f"https://t.me/{client.invitelink}")]
+           [ InlineKeyboardButton(text="📢𝙹𝚘𝚒𝚗 𝙼𝚢 𝚄𝚙𝚍𝚊𝚝𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕📢", url=client.invitelink)]
            ])
        )
        return
-    else:
-       file = message.document or message.video or message.audio 
-       filename = file.file_name
-       filesize = humanize.naturalsize(file.file_size)
-       fileid = file.file_id
-       await message.reply_text(
-           f"__What do you want me to do with this file?__\n**File Name** :- {filename}\n**File Size** :- {filesize}",
-           reply_to_message_id = message.id,
-           reply_markup = InlineKeyboardMarkup([[ InlineKeyboardButton("📝 Rename ",callback_data = "rename"),
-           InlineKeyboardButton("Cancel✖️",callback_data = "cancel")  ]]))
+    file = message.document or message.video or message.audio 
+    filename = file.file_name
+    filesize = humanize.naturalsize(file.file_size)
+    fileid = file.file_id
+    await message.reply_text(
+        f"__What do you want me to do with this file?__\n**File Name** :- {filename}\n**File Size** :- {filesize}",
+        reply_to_message_id = message.id,
+        reply_markup = InlineKeyboardMarkup([[ InlineKeyboardButton("📝 Rename ",callback_data = "rename"),
+        InlineKeyboardButton("Cancel✖️",callback_data = "cancel")  ]]))
 
 
 @Client.on_callback_query()
@@ -75,10 +74,10 @@ async def cb_handler(client, query: CallbackQuery):
             pass
 
 async def is_subscribed(client, message):
-   if not client.force_sub:
+   if not client.force_channel:
       return True
    try:             
-      user = await client.get_chat_member(client.force_sub, message.from_user.id)
+      user = await client.get_chat_member(client.force_channel, message.from_user.id)
    except UserNotParticipant:
       pass
    else:
