@@ -7,10 +7,8 @@ logging.basicConfig(
   level=logging.INFO,
   format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
-logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
-logging = logging.getLogger(__name__)
-
+ 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 
 API_ID = int(os.environ.get("API_ID", ""))
@@ -35,15 +33,16 @@ class Bot(Client):
     async def start(self):
        await super().start()
        me = await self.get_me()
-       self.username = me.username
+       self.username = me.username 
+       self.force_channel = FORCE_SUB
        if FORCE_SUB:
          try:
             link = await self.export_chat_invite_link(FORCE_SUB)
             self.invitelink = link
          except Exception as e:
-            logging.warning(e)
+            logging.warning(e) 
             logging.warning("Make Sure Bot admin in force sub channel") 
-       self.force_channel = FORCE_SUB
+            self.force_channel = None
        logging.info(f"{me.first_name} Started")
         
     async def stop(self, *args):
