@@ -1,5 +1,13 @@
-import os
+import os 
+import logging
 from pyrogram import Client
+
+logging.basicConfig(
+  filename='rename-bot.txt',
+  level=logging.INFO,
+  format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logging.getLogger("pyrogram").setLevel(logging.ERROR)
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 
@@ -26,11 +34,19 @@ class Bot(Client):
        await super().start()
        me = await self.get_me()
        self.username = me.username
-       print("Bot Started")
+       if FORCE_SUB:
+         try:
+            link = await self.export_chat_invite_link(FORCE_SUB)
+            self.invitelink = link
+         except Exception as e:
+            logging.warning(e)
+            logging.warning("Make Sure Bot admin in force sub channel") 
+       self.force_channel = FORCE_SUB
+       logging.info(f"{me.first_name} Started")
         
     async def stop(self, *args):
       await super().stop()
-      print("Bot Stopped")
+      logging.info("Bot Stopped")
         
 bot = Bot()
 bot.run()
