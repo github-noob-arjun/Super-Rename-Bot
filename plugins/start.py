@@ -1,9 +1,9 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
-from pyrogram.errors import UserNotParticipant
 import humanize
-import logging
-from Translation import mr
+import logging  
+from Translation import mr 
+from utils import not_subscribed
 from helper.database import  insert 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -67,15 +67,3 @@ async def cb_handler(client, query: CallbackQuery):
             await query.message.reply_to_message.delete()
         except:
             pass
-
-async def is_subscribed(client, message):
-   if not client.force_channel:
-      return True
-   try:             
-      user = await client.get_chat_member(client.force_channel, message.from_user.id)
-   except UserNotParticipant:
-      pass
-   else:
-      if user.status != "kicked":
-         return True 
-   return False
