@@ -2,9 +2,11 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
 from pyrogram.errors import UserNotParticipant
 import humanize
+import logging
 from Translation import mr
 from helper.database import  insert 
-
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 @Client.on_message(filters.private & filters.command(["start"]))
 async def start(client, message):
