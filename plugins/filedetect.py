@@ -15,11 +15,11 @@ async def refunc(client, message):
        file = msg.reply_to_message
        media = file.media
        await reply_message.delete()
-       button = [[InlineKeyboardButton("📁 Documents",callback_data = "doc")]]
+       button = [[InlineKeyboardButton("📁 Documents",callback_data = "upload_document")]]
        if str(media) == "MessageMediaType.VIDEO":
-           button.append([InlineKeyboardButton("🎥 Video",callback_data = "vid")])
+           button.append([InlineKeyboardButton("🎥 Video",callback_data = "upload_video")])
        elif str(media) == "MessageMediaType.AUDIO":
-           button.append([InlineKeyboardButton("🎵 audio",callback_data = "aud")])
+           button.append([InlineKeyboardButton("🎵 audio",callback_data = "upload_audio")])
        await message.reply_text(
           f"**Select the output file type**\n**Output FileName** :- ```{new_name}```",
           reply_to_message_id=file.id,
