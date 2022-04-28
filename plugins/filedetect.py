@@ -13,18 +13,12 @@ async def refunc(client, message):
        await message.delete() 
        msg = await client.get_messages(message.chat.id, reply_message.id)
        file = msg.reply_to_message
-       type = file.mime_type.split('/')[0]
+       file_type = file.mime_type.split('/')[0]
        await reply_message.delete()
-       try:
-           check = new_name.split(".")
-       except:
-           return await message.reply_text(
-                     "**Error** :  No  Extension in File, Not Supporting",
-                      reply_to_message_id=msg.id)
        button = [[InlineKeyboardButton("📁 Documents",callback_data = "doc")]]
-       if type == "video":
+       if file_type == "video":
            button[-1].append(InlineKeyboardButton("🎥 Video",callback_data = "vid"))
-       elif media == "audio":
+       elif file_type == "audio":
            button[-1].append(InlineKeyboardButton("🎵 audio",callback_data = "aud"))
        await message.reply_text(
           f"**Select the output file type**\n**Output FileName** :- ```{new_name}```",
