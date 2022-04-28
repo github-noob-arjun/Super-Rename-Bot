@@ -43,7 +43,7 @@ async def doc(bot,update):
      old_file_name =f"downloads/{dow_file_name}"
      os.rename(old_file_name,file_path)
      user_id = int(update.message.chat.id)
-     thumb = find(user_id)
+     thumb = find(user_id)[0]
      if thumb:
      		ph_path = await bot.download_media(thumb)
      		Image.open(ph_path).convert("RGB").save(ph_path)
@@ -99,7 +99,7 @@ async def vid(bot,update):
      if metadata.has("duration"):
      		duration = metadata.get('duration').seconds
      user_id = int(update.message.chat.id)
-     thumb = find(user_id)
+     thumb = find(user_id)[0]
      if thumb:
      		ph_path = await bot.download_media(thumb)
      		Image.open(ph_path).convert("RGB").save(ph_path)
@@ -154,7 +154,7 @@ async def aud(bot,update):
      if metadata.has("duration"):
      	duration = metadata.get('duration').seconds
      user_id = int(update.message.chat.id)
-     thumb = find(user_id)
+     thumb = find(user_id)[0]
      if thumb:
      		ph_path = await bot.download_media(thumb)
      		Image.open(ph_path).convert("RGB").save(ph_path)
