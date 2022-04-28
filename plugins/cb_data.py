@@ -47,10 +47,10 @@ async def doc(bot,update):
      thumb = find(user_id)[0]
      if thumb:
          ph_path = await bot.download_media(thumb) 
-     Image.open(ph_path).convert("RGB").save(ph_path)
-     img = Image.open(ph_path)
-     img.resize((320, 320))
-     img.save(ph_path, "JPEG")
+         Image.open(ph_path).convert("RGB").save(ph_path)
+         img = Image.open(ph_path)
+         img.resize((320, 320))
+         img.save(ph_path, "JPEG")
      await ms.edit("```Trying To Uploading```")
      c_time = time.time() 
      try:
