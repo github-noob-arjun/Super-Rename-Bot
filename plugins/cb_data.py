@@ -23,8 +23,9 @@ async def rename(bot,update):
 	reply_to_message_id=update.message.reply_to_message.id,  
 	reply_markup=ForceReply(True))
 	
-@Client.on_callback_query(filters.regex("doc"))
+@Client.on_callback_query(filters.regex("upload"))
 async def doc(bot,update):
+     type = update.data.split('_')[1]
      new_name = update.message.text
      name = new_name.split(":-")
      new_filename = name[1]
@@ -37,7 +38,6 @@ async def doc(bot,update):
      except Exception as e:
      	await ms.edit(e)
      	return
-     type = "document"
      splitpath = path.split("/downloads/")
      dow_file_name = splitpath[1]
      old_file_name =f"downloads/{dow_file_name}"
@@ -55,11 +55,31 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
         if type == "document":
-           await bot.send_document(update.message.chat.id, document=file_path, thumb=ph_path, caption = f"**{new_filename}**", progress=progress_for_pyrogram, progress_args=( "```Trying To Uploading```",  ms, c_time   ))
+           await bot.send_document(
+		    update.message.chat.id,
+                    document=file_path,
+                    thumb=ph_path, 
+                    caption = f"**{new_filename}**", 
+                    progress=progress_for_pyrogram,
+                    progress_args=( "```Trying To Uploading```",  ms, c_time   ))
         elif type == "video": 
-            await bot.send_video(update.message.chat.id, video=file_path, caption=f"**{new_filename}**", thumb=ph_path, duration=duration, progress=progress_for_pyrogram, progress_args=( "```Trying To Uploading```",  ms, c_time))
+            await bot.send_video(
+		    update.message.chat.id,
+		    video=file_path,
+		    caption=f"**{new_filename}**",
+		    thumb=ph_path,
+		    duration=duration,
+		    progress=progress_for_pyrogram,
+		    progress_args=( "```Trying To Uploading```",  ms, c_time))
         elif type == "audio": 
-            await bot.send_audio(update.message.chat.id,audio = file_path,caption = f"**{new_filename}**", thumb=ph_path, duration=duration, progress=progress_for_pyrogram, progress_args=( "```Trying To Uploading```",  ms, c_time   )) 
+            await bot.send_audio(
+		    update.message.chat.id,
+		    audio=file_path,
+		    caption=f"**{new_filename}**",
+		    thumb=ph_path,
+		    duration=duration,
+		    progress=progress_for_pyrogram,
+		    progress_args=( "```Trying To Uploading```",  ms, c_time   )) 
      except Exception as e: 
          await ms.edit(e) 
          os.remove(file_path)
