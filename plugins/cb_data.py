@@ -64,9 +64,9 @@ async def doc(bot,update):
         elif type == "audio": 
             await bot.send_audio(update.message.chat.id,audio = file_path,caption = f"**{new_filename}**", thumb=ph_path, duration=duration, progress=progress_for_pyrogram, progress_args=( "```Trying To Uploading```",  ms, c_time   )) 
      except Exception as e: 
-	await ms.edit(e)
-     	os.remove(file_path) 
-        if ph_path:
+         await ms.edit(e) 
+         os.remove(file_path)
+         if ph_path:
            os.remove(ph_path)
      await ms.delete() 
      os.remove(file_path) 
