@@ -37,7 +37,7 @@ async def doc(bot,update):
      except Exception as e:
      	await ms.edit(e)
      	return
-     	
+     type = "document"
      splitpath = path.split("/downloads/")
      dow_file_name = splitpath[1]
      old_file_name =f"downloads/{dow_file_name}"
@@ -45,36 +45,34 @@ async def doc(bot,update):
      user_id = int(update.message.chat.id)
      thumb = find(user_id)[0]
      if thumb:
-     		ph_path = await bot.download_media(thumb)
-     		Image.open(ph_path).convert("RGB").save(ph_path)
-     		img = Image.open(ph_path)
-     		img.resize((320, 320))
-     		img.save(ph_path, "JPEG")
-     		c_time = time.time()
-     		await ms.edit("```Trying To Uploading```")
-     		c_time = time.time()
-     		try:
-     			await bot.send_document(update.message.chat.id,document = file_path,thumb=ph_path,caption = f"**{new_filename}**",progress=progress_for_pyrogram,progress_args=( "```Trying To Uploading```",  ms, c_time   ))
-     			await ms.delete()
-     			os.remove(file_path)
-     			os.remove(ph_path)
-     		except Exception as e:
-     			await ms.edit(e)
-     			os.remove(file_path)
-     			os.remove(ph_path)
-     			     		     		
-     else:
-     		await ms.edit("```Trying To Uploading```")
-     		c_time = time.time()
-     		try:
-     			await bot.send_document(update.message.chat.id,document = file_path,caption = f"**{new_filename}**",progress=progress_for_pyrogram,progress_args=( "```Trying To Uploading```",  ms, c_time   ))
-     			await ms.delete()
-     			os.remove(file_path)
-     		except Exception as e:
-     			await ms.edit(e)
-     			os.remove(file_path)
-     			     		   		
-     		
+         ph_path = await bot.download_media(thumb) 
+     elif file.media.thumbs: 
+         ph_path = await bot.download_media(file.media.thumbs)
+     else: 
+         ph_path = None
+     Image.open(ph_path).convert("RGB").save(ph_path)
+     img = Image.open(ph_path)
+     img.resize((320, 320))
+     img.save(ph_path, "JPEG")
+     await ms.edit("```Trying To Uploading```")
+     c_time = time.time() 
+     try:
+        if type == "document":
+           await bot.send_document(update.message.chat.id, document=file_path, thumb=ph_path, caption = f"**{new_filename}**", progress=progress_for_pyrogram, progress_args=( "```Trying To Uploading```",  ms, c_time   ))
+        elif type == "video": 
+            await bot.send_video(update.message.chat.id, video=file_path, caption=f"**{new_filename}**", thumb=ph_path, duration=duration, progress=progress_for_pyrogram, progress_args=( "```Trying To Uploading```",  ms, c_time))
+        elif type == "audio": 
+            await bot.send_audio(update.message.chat.id,audio = file_path,caption = f"**{new_filename}**", thumb=ph_path, duration=duration, progress=progress_for_pyrogram, progress_args=( "```Trying To Uploading```",  ms, c_time   )) 
+     except Exception: 
+	await ms.edit(e)
+     	os.remove(file_path) 
+        if ph_path:
+           os.remove(ph_path)
+     await ms.delete() 
+     os.remove(file_path) 
+     if ph_path:
+        os.remove(ph_path)
+     			
 @Client.on_callback_query(filters.regex("vid"))
 async def vid(bot,update):
      new_name = update.message.text
