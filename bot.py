@@ -1,14 +1,12 @@
 import os 
-import logging
-from pyrogram import Client
+import logging 
+import logging.config
+from pyrogram import Client 
 
-logging.basicConfig(
-  filename='rename-bot.txt',
-  level=logging.INFO,
-  format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logging.getLogger("pyrogram").setLevel(logging.ERROR)
- 
+logging.config.fileConfig('logging.conf')
+logging.getLogger().setLevel(logging.INFO)
+logging.getLogger("pyrogram").setLevel(logging.ERROR) 
+
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 
 API_ID = int(os.environ.get("API_ID", ""))
