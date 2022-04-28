@@ -13,13 +13,13 @@ async def refunc(client, message):
        await message.delete() 
        msg = await client.get_messages(message.chat.id, reply_message.id)
        file = msg.reply_to_message
-       file_type = file.mime_type.split('/')[0]
+       media = file.media
        await reply_message.delete()
        button = [[InlineKeyboardButton("📁 Documents",callback_data = "doc")]]
-       if file_type == "video":
-           button[-1].append(InlineKeyboardButton("🎥 Video",callback_data = "vid"))
-       elif file_type == "audio":
-           button[-1].append(InlineKeyboardButton("🎵 audio",callback_data = "aud"))
+       if str(media) == "MessageMediaType.VIDEO":
+           button.append([InlineKeyboardButton("🎥 Video",callback_data = "vid")])
+       elif str(media) == "MessageMediaType.AUDIO":
+           button.append([InlineKeyboardButton("🎵 audio",callback_data = "aud")])
        await message.reply_text(
           f"**Select the output file type**\n**Output FileName** :- ```{new_name}```",
           reply_to_message_id=msg.id,
