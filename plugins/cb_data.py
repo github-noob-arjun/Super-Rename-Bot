@@ -46,10 +46,11 @@ async def doc(bot,update):
      thumb = find(user_id)[0]
      if thumb:
          ph_path = await bot.download_media(thumb) 
-     elif file.media.thumbs: 
-         ph_path = await bot.download_media(file.media.thumbs)
      else: 
          ph_path = None
+         media = getattr(file, file.media, None)
+         if media.thumbs:
+            ph_path = await bot.download_media(media.thumbs)
      Image.open(ph_path).convert("RGB").save(ph_path)
      img = Image.open(ph_path)
      img.resize((320, 320))
