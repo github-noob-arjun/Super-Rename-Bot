@@ -22,11 +22,11 @@ async def refunc(client, message):
                      "**Error** :  No  Extension in File, Not Supporting",
                       reply_to_message_id=msg.id)
        button = [[InlineKeyboardButton("📁 Documents",callback_data = "doc")]]
-       if media == "video":
+       if media == "MessageMediaType.VIDEO":
            button[-1].append(InlineKeyboardButton("🎥 Video",callback_data = "vid"))
-       elif media == "audio":
+       elif media == "MessageMediaType.AUDIO":
            button[-1].append(InlineKeyboardButton("🎵 audio",callback_data = "aud"))
        await message.reply_text(
-          f"**Select the output file type**\n**Output FileName** :- ```{new_name} | {media}```",
+          f"**Select the output file type**\n**Output FileName** :- ```{new_name}```",
           reply_to_message_id=msg.id,
           reply_markup=InlineKeyboardMarkup(button))
