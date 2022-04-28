@@ -12,7 +12,8 @@ async def refunc(client,message):
        new_name = message.text 
       # await message.delete() 
       # await message.reply_to_message.delete()
-       media = getattr(message, reply_message.media)
+       media = message.media
+      #  media = getattr(message, reply_message.media)
        try:
            check = new_name.split(".") 
        except:
