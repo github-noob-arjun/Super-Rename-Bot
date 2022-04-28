@@ -41,7 +41,11 @@ async def doc(bot,update):
      splitpath = path.split("/downloads/")
      dow_file_name = splitpath[1]
      old_file_name =f"downloads/{dow_file_name}"
-     os.rename(old_file_name,file_path)
+     os.rename(old_file_name,file_path) 
+     duration = 0
+     metadata = extractMetadata(createParser(file_path))
+     if metadata.has("duration"):
+     	duration = metadata.get('duration').seconds
      user_id = int(update.message.chat.id) 
      ph_path = None
      thumb = find(user_id)[0]
