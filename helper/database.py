@@ -33,7 +33,7 @@ def find(chat_id):
     for i in x:
          thumb = i["file_id"]
          caption = i["caption"]
-         return thumb, caption 
+         return [thumb, caption]
 
 def getid():
     values = []
