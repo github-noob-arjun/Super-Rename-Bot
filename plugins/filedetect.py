@@ -1,6 +1,10 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply
 
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR) 
+
 @Client.on_message(filters.private & filters.reply)
 async def refunc(client,message):
     reply_message = message.reply_to_message
