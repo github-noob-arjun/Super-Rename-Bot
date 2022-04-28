@@ -11,7 +11,7 @@ async def refunc(client,message):
     if (reply_message.reply_markup) and isinstance(reply_message.reply_markup, ForceReply):
        new_name = message.text 
        await message.delete() 
-       await message.reply_to_message.delete()
+      # await message.reply_to_message.delete()
        media = getattr(message, reply_message.media)
        try:
            check = new_name.split(".") 
