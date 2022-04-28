@@ -10,7 +10,7 @@ async def refunc(client,message):
     reply_message = message.reply_to_message
     if (reply_message.reply_markup) and isinstance(reply_message.reply_markup, ForceReply):
        new_name = message.text 
-       await message.delete() 
+      # await message.delete() 
       # await message.reply_to_message.delete()
        media = getattr(message, reply_message.media)
        try:
