@@ -8,16 +8,13 @@ import os
 import humanize
 from PIL import Image
 import time
-import logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.ERROR)
 
 @Client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot,update):
 	try:
-		await update.message.delete()
+           await update.message.delete()
 	except:
-		return
+           return
 @Client.on_callback_query(filters.regex('rename'))
 async def rename(bot,update):
 	user_id = update.message.chat.id
