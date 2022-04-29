@@ -1,5 +1,6 @@
 import math
-import time
+import time 
+from Translation import mr
 from pyrogram.errors import UserNotParticipant
 
 async def progress_for_pyrogram(
@@ -23,21 +24,21 @@ async def progress_for_pyrogram(
         elapsed_time = TimeFormatter(milliseconds=elapsed_time)
         estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
-        progress = "[{0}{1}] \n**📊Progress**: {2}%\n".format(
+        progress = "[{0}{1}]\n\n.format(
             ''.join(["⦿" for i in range(math.floor(percentage / 5))]),
-            ''.join(["⭗" for i in range(20 - math.floor(percentage / 5))]),
-            round(percentage, 2))
-
-        tmp = progress + "{0} of {1}\n**⚡️Speed**: {2}/s\n**⏳️ETA**: {3}\n".format(
+            ''.join(["⭗" for i in range(20 - math.floor(percentage / 5))]))
+            
+        tmp = progress + mr.PROGRESS_BAR.format(
             humanbytes(current),
             humanbytes(total),
+            round(percentage, 2),
             humanbytes(speed),
             # elapsed_time if elapsed_time != '' else "0 s",
             estimated_total_time if estimated_total_time != '' else "0 s"
         )
         try:
             await message.edit(
-                text="{}\n {}".format(
+                text="{}\n\n{}".format(
                     ud_type,
                     tmp
                 )
