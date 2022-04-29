@@ -57,14 +57,15 @@ async def doc(bot,update):
      ph_path = None
      data = find(user_id) 
      media = getattr(file, file.media.value)
-     c_caption = data[1]
+     c_caption = data[1] 
+     c_thumb = data[0]
      if c_caption:
          caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=convert(duration))
      else:
          caption = f"**{new_filename}**"
-     if (media.thumbs or data[0]):
-         if data[0]:
-            ph_path = await bot.download_media(data[0]) 
+     if (media.thumbs or c_thumb):
+         if c_thumb:
+            ph_path = await bot.download_media(c_thumb) 
          else:
             ph_path = await bot.download_media(media.thumbs[0].file_id)
          Image.open(ph_path).convert("RGB").save(ph_path)
