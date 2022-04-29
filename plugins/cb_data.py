@@ -4,7 +4,8 @@ from pyrogram.types import (  InlineKeyboardButton, InlineKeyboardMarkup,ForceRe
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from helper.database import find
-import os
+import os 
+import humanize
 from PIL import Image
 import time
 
@@ -52,7 +53,7 @@ async def doc(bot,update):
      media = getattr(file, file.media.value)
      c_caption = find[1]
      if c_caption:
-         caption = c_caption.format(filename=new_filename, filesize=media.file_size, duration=duration)
+         caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=duration)
      else:
          caption = f"**{new_filename}**"
      if find[0]:
