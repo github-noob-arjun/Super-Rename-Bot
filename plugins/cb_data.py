@@ -1,4 +1,4 @@
-from helper.progress import progress_for_pyrogram
+from helper.utils import progress_for_pyrogram, convert
 from pyrogram import Client, filters
 from pyrogram.types import (  InlineKeyboardButton, InlineKeyboardMarkup,ForceReply)
 from hachoir.metadata import extractMetadata
@@ -42,23 +42,24 @@ async def doc(bot,update):
      except Exception as e:
      	await ms.edit(e)
      	return 
-     await ms.edit("download completed")
      splitpath = path.split("/downloads/")
      dow_file_name = splitpath[1]
      old_file_name =f"downloads/{dow_file_name}"
      os.rename(old_file_name,file_path)
-     await ms.edit("renamed")
      duration = 0
-     metadata = extractMetadata(createParser(file_path))
-     if metadata.has("duration"):
-     	duration = metadata.get('duration').seconds
+     try:
+        metadata = extractMetadata(createParser(file_path))
+        if metadata.has("duration"):
+           duration = metadata.get('duration').seconds
+     except:
+        pass
      user_id = int(update.message.chat.id) 
      ph_path = None
      data = find(user_id) 
      media = getattr(file, file.media.value)
      c_caption = data[1]
      if c_caption:
-         caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=duration)
+         caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=convert(duration))
      else:
          caption = f"**{new_filename}**"
      if (media.thumbs or data[0]):
