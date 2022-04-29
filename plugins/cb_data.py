@@ -8,6 +8,9 @@ import os
 import humanize
 from PIL import Image
 import time
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
 
 @Client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot,update):
