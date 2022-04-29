@@ -65,7 +65,7 @@ async def doc(bot,update):
          if data[0]:
             ph_path = await bot.download_media(data[0]) 
          else:
-            ph_path = await bot.download_media(media.thumbs.file_id)
+            ph_path = await bot.download_media(media.thumbs[0].file_id)
          Image.open(ph_path).convert("RGB").save(ph_path)
          img = Image.open(ph_path)
          img.resize((320, 320))
