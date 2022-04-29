@@ -52,19 +52,23 @@ async def doc(bot,update):
      	duration = metadata.get('duration').seconds
      user_id = int(update.message.chat.id) 
      ph_path = None
-     find = find(user_id)
-     media = getattr(file, file.media.value)
-     c_caption = find[1]
-     if c_caption:
-         caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=duration)
-     else:
-         caption = f"**{new_filename}**"
-     if find[0]:
-         ph_path = await bot.download_media(find[0]) 
-         Image.open(ph_path).convert("RGB").save(ph_path)
-         img = Image.open(ph_path)
-         img.resize((320, 320))
-         img.save(ph_path, "JPEG")
+     find = find(user_id) 
+     try:
+        media = getattr(file, file.media.value)
+        c_caption = find[1]
+        if c_caption:
+            caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=duration)
+        else:
+            caption = f"**{new_filename}**"
+        if find[0]:
+           ph_path = await bot.download_media(find[0]) 
+           Image.open(ph_path).convert("RGB").save(ph_path)
+           img = Image.open(ph_path)
+           img.resize((320, 320))
+           img.save(ph_path, "JPEG")
+     except Exception as e:  
+        await ms.edit(e)
+        logger.exception(e)
      await ms.edit("```Trying To Uploading```")
      c_time = time.time() 
      try:
