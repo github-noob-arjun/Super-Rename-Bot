@@ -28,10 +28,10 @@ async def progress_for_pyrogram(
             ''.join(["⦿" for i in range(math.floor(percentage / 5))]),
             ''.join(["⭗" for i in range(20 - math.floor(percentage / 5))]))
             
-        tmp = progress + mr.PROGRESS_BAR.format(
+        tmp = progress + mr.PROGRESS_BAR.format( 
+            round(percentage, 2),
             humanbytes(current),
             humanbytes(total),
-            round(percentage, 2),
             humanbytes(speed),
             # elapsed_time if elapsed_time != '' else "0 s",
             estimated_total_time if estimated_total_time != '' else "0 s"
@@ -54,7 +54,7 @@ def humanbytes(size):
         return ""
     power = 2**10
     n = 0
-    Dic_powerN = {0: ' ', 1: 'Ki', 2: 'Mi', 3: 'Gi', 4: 'Ti'}
+    Dic_powerN = {0: ' ', 1: 'K', 2: 'M', 3: 'G', 4: 'T'}
     while size > power:
         size /= power
         n += 1
