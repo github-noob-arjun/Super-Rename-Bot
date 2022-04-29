@@ -1,14 +1,11 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
 import humanize
-import logging  
-from Translation import mr 
-from utils import not_subscribed
+from Translation import mr
 from helper.database import  insert 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+from helper.utils import not_subscribed 
 
-@Client.on_message(filters.private & not_subscribed)
+@Client.on_message(filters.private & filters.create(not_subscribed))
 async def is_not_subscribed(client, message):
     await message.reply_text(
        text="**sorry bro നിങ്ങൾ ഞങ്ങളുടെ ചാനലിൽ ജോയിൻ ചെയ്തിട്ടില്ല താഴെയുള്ള ബട്ടനിൽ ക്ലിക്ക് ചെയ്ത് join ചെയ്യൂ എന്നിട്ട് വീണ്ടും start കൊടുക്കൂ 🙏**",
