@@ -48,9 +48,15 @@ async def doc(bot,update):
      	duration = metadata.get('duration').seconds
      user_id = int(update.message.chat.id) 
      ph_path = None
-     thumb = find(user_id)[0]
-     if thumb:
-         ph_path = await bot.download_media(thumb) 
+     find = find(user_id)
+     media = getattr(file, file.media.value)
+     c_caption = find[1]
+     if c_caption:
+         caption = c_caption.format(filename=new_filename, filesize=media.file_size, duration=duration)
+     else:
+         caption = f"**{new_filename}**"
+     if find[0]:
+         ph_path = await bot.download_media(find[0]) 
          Image.open(ph_path).convert("RGB").save(ph_path)
          img = Image.open(ph_path)
          img.resize((320, 320))
@@ -63,14 +69,14 @@ async def doc(bot,update):
 		    update.message.chat.id,
                     document=file_path,
                     thumb=ph_path, 
-                    caption = f"**{new_filename}**", 
+                    caption=caption, 
                     progress=progress_for_pyrogram,
                     progress_args=( "```Trying To Uploading```",  ms, c_time   ))
         elif type == "video": 
             await bot.send_video(
 		    update.message.chat.id,
 		    video=file_path,
-		    caption=f"**{new_filename}**",
+		    caption=caption,
 		    thumb=ph_path,
 		    duration=duration,
 		    progress=progress_for_pyrogram,
@@ -79,7 +85,7 @@ async def doc(bot,update):
             await bot.send_audio(
 		    update.message.chat.id,
 		    audio=file_path,
-		    caption=f"**{new_filename}**",
+		    caption=caption,
 		    thumb=ph_path,
 		    duration=duration,
 		    progress=progress_for_pyrogram,
