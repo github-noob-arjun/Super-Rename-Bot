@@ -20,7 +20,7 @@
         },
         "FORCE_SUB": {
             "description": "Your force sub channel user name without [@] ",
-            "value": "mkn_bots_updates",
+            "value": "",
             "required": false 
         },
         "BOT_TOKEN": {
@@ -32,7 +32,7 @@
         },
         "DB_URL": {
             "description": "Your Mongo DB URL Obtained From mongodb.com",
-            "value": "mongodb+srv://FL:FL@cluster0.vnyds.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+            "value": ""
         },
         "DB_NAME":{ 
                "description":"Your Mongo DB Database Name ",
