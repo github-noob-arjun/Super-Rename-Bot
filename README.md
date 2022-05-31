@@ -32,7 +32,7 @@ Telegram File Renamer Bot
 
 
 ### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TEAM-PYRO-BOTZ/RENAMER_Ultron)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://github.com/MrMKN/PYRO-RENAME-LODER)
 
 
 ## Botfather Commands
