@@ -1,40 +1,5 @@
 #  𝑷𝒀𝑹𝑶 𝑹𝑬𝑵𝑨𝑴𝑬 𝑩𝑶𝑻 𝑽𝑸
 
-Telegram File Renamer Bot 
-
-<p align="center">
-  <a href="https://www.python.org">
-    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg">
-
-  </a>
-</p>
-</p>
-
-
-
-
-## Configs 
-
-* `TG_BOT_TOKEN`  - Get bot token from @BotFather
-
-* `API_ID` - From my.telegram.org 
-
-* `API_HASH` - From my.telegram.org 
-
-* `ADMIN` - AUTH or bot controllers id's multiple id use space to split 
-
-* `DATABASE_URI`  - Mongo Database URL from https://cloud.mongodb.com/
-
-* `DATABASE_NAME`  - Your database name from mongoDB. Default will be 'my'
-
-* `FORCE_SUB` - your force sub channel username without @ 
-
-
-
-### How to Deploye 🤔
-👇 Click here
-
-[𝗣𝗬𝗥𝗢 𝗥𝗘𝗡𝗔𝗠𝗘 𝗟𝗢𝗔𝗗𝗘𝗥](https://github.com/MrMKN/PYRO-RENAME-LODER)
 
 
 ## Botfather Commands
