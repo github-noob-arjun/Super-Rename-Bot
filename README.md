@@ -31,8 +31,10 @@ Telegram File Renamer Bot
 
 
 
-### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://github.com/MrMKN/PYRO-RENAME-LODER)
+### How to Deploye 🤔
+👇 Click here
+
+[𝗣𝗬𝗥𝗢 𝗥𝗘𝗡𝗔𝗠𝗘 𝗟𝗢𝗔𝗗𝗘𝗥](https://www.herokucdn.com/deploy/button.svg)](https://github.com/MrMKN/PYRO-RENAME-LODER)
 
 
 ## Botfather Commands
