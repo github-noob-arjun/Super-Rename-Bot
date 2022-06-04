@@ -57,7 +57,7 @@ async def cb_handler(client, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup( [[
                 InlineKeyboardButton("👼 𝙳𝙴𝚅𝚂 👼", callback_data='dev')
                 ],[
-                InlineKeyboardButton("❤️‍🔥 𝚆𝙰𝚃𝙲𝙷 𝚃𝚄𝚃𝙾𝚁𝙸𝙰𝙻 ❤️‍🔥", url='https://youtu.be/BiC66uFJsio'
+                InlineKeyboardButton("❤️‍🔥 𝚆𝙰𝚃𝙲𝙷 𝚃𝚄𝚃𝙾𝚁𝙸𝙰𝙻 ❤️‍🔥", url='https://youtu.be/BiC66uFJsio')
                 ],[
                 InlineKeyboardButton('📢 𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/PYRO_BOTZ'),
                 InlineKeyboardButton('🍂 𝚂𝚄𝙿𝙿𝙾𝚁𝚃', url='https://t.me/PYRO_BOTZ_CHAT')
