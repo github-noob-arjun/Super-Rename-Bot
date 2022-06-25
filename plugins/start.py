@@ -72,6 +72,9 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_text(
             text=mr.HELP_TXT,
             reply_markup=InlineKeyboardMarkup( [[
+               #⚠️ don't change source code & source link ⚠️ #
+               InlineKeyboardButton("❣️ 𝚂𝙾𝚄𝚁𝙲𝙴", "https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-LOADER")
+               ],[
                InlineKeyboardButton("❤️‍🔥 𝚆𝙰𝚃𝙲𝙷 𝚃𝚄𝚃𝙾𝚁𝙸𝙰𝙻 ❤️‍🔥", url='https://youtu.be/BiC66uFJsio')
                ],[
                InlineKeyboardButton("🔒 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
@@ -84,6 +87,9 @@ async def cb_handler(client, query: CallbackQuery):
             text=mr.ABOUT_TXT.format(client.mention),
             disable_web_page_preview = True,
             reply_markup=InlineKeyboardMarkup( [[
+               #⚠️ don't change source code & source link ⚠️ #
+               InlineKeyboardButton("❣️ 𝚂𝙾𝚄𝚁𝙲𝙴", "https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-LOADER")
+               ],[
                InlineKeyboardButton("🔒 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
                InlineKeyboardButton("◀️ 𝙱𝙰𝙲𝙺", callback_data = "start")
                ]]
@@ -93,6 +99,9 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_text(
             text=mr.DEV_TXT,
             reply_markup=InlineKeyboardMarkup( [[
+               #⚠️ don't change source code & source link ⚠️ #
+               InlineKeyboardButton("❣️ 𝚂𝙾𝚄𝚁𝙲𝙴", "https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-LOADER")
+               ],[
                InlineKeyboardButton("🔒 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
                InlineKeyboardButton("◀️ 𝙱𝙰𝙲𝙺", callback_data = "start")
                ]]
