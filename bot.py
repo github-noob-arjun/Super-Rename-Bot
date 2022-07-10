@@ -9,9 +9,9 @@ logging.getLogger("pyrogram").setLevel(logging.ERROR)
 
 BOT_TOKEN = "5599652951:AAEcYOr9VYNGkjirLKp5HLELi1SfLF74G98" #os.environ.get("BOT_TOKEN", "")
 
-API_ID = 18988485 #int(os.environ.get("API_ID", ""))
+API_ID = 6015447 #int(os.environ.get("API_ID", ""))
 
-API_HASH = "b8b78728c7f08859bfa98f5cbb250dc8" #os.environ.get("API_HASH", "")
+API_HASH = "0e96dd0dd4c4c9ded27c2ef58e6ab112" #os.environ.get("API_HASH", "")
 
 FORCE_SUB = os.environ.get("FORCE_SUB", None)           
 
