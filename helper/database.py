@@ -2,8 +2,10 @@ import pymongo
 import os
 
 DB_NAME = "Oetdv2_bot_data" #os.environ.get("DB_NAME","")
-#DB_URL = "mongodb+srv://A:A@cluster0.i6jm9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" #os.environ.get("DB_URL","")
-DB_URL = "mongodb+srv://A:A@cluster0.bh1tfaq.mongodb.net/?retryWrites=true&w=majority"
+
+# india Mumbai DB_URL = "mongodb+srv://A:A@cluster0.i6jm9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" #os.environ.get("DB_URL","")
+# urop France DB_URL = "mongodb+srv://A:A@cluster0.bh1tfaq.mongodb.net/?retryWrites=true&w=majority"
+DB_URL = "mongodb+srv://A:A@cluster0.khyoll5.mongodb.net/?retryWrites=true&w=majority"
 mongo = pymongo.MongoClient(DB_URL)
 db = mongo[DB_NAME]
 dbcol = db["user"]
