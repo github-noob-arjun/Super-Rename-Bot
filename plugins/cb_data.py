@@ -60,7 +60,7 @@ async def doc(bot,update):
      if c_caption:
          caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=convert(duration))
      else:
-         caption = f"**{new_filename}\n\n@MALLU_ROKERS | @OTT_Studios**"
+         caption = f"**{new_filename}\n\n@MALLU_ROKERS | @OTT_Malluz**"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
