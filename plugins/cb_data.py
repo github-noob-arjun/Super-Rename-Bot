@@ -31,9 +31,9 @@ async def rename(bot,update):
 async def doc(bot,update):
      await update.reply("wait")
      #type = update.data.split('_')[1]
-     new_name = update.message.text
+     #new_name = update.message.text
      #new_filename = new_name.split(":-")[1]
-     new_filename = new_name.split(" ")[1]
+     new_filename = update.split(" ")[1]
      if not "!" in new_filename:
         new_filename = new_filename + ".mkv"
      else:
