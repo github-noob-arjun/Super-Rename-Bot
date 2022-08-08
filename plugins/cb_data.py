@@ -229,7 +229,7 @@ async def aud(bot,update):
              audio=file_path,
              caption=caption,
              thumb=ph_path, 
-             duration=duration 
+             duration=duration,
              progress=progress_for_pyrogram,
              progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ))
      except Exception as e: 
