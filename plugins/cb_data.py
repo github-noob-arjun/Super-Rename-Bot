@@ -79,18 +79,18 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
         if type == "document":
-          # await bot.send_document(
-		  #  update.message.chat.id,
-           await update.message.reply_document(
+           await bot.send_document(
+		    update.message.reply_to_message.chat.id,
+          # await update.message.reply_document(
                     document=file_path,
                     thumb=ph_path, 
                     caption=caption, 
                     progress=progress_for_pyrogram,
                     progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ))
         elif type == "video": 
-            #await bot.send_video(
-		   # update.message.chat.id,
-            await update.message.reply_video(
+            await bot.send_video(
+		    update.message.reply_to_message.chat.id,
+           # await update.message.reply_video(
 		    video=file_path,
 		    caption=caption,
 		    thumb=ph_path,
@@ -98,9 +98,9 @@ async def doc(bot,update):
 		    progress=progress_for_pyrogram,
 		    progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time))
         elif type == "audio": 
-           # await bot.send_audio(
-		#    update.message.chat.id,
-            await update.message.reply_audio(
+            await bot.send_audio(
+		    update.message.reply_to_message.chat.id,
+            #await update.message.reply_audio(
 		    audio=file_path,
 		    caption=caption,
 		    thumb=ph_path,
