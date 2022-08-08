@@ -55,7 +55,7 @@ async def doc(bot,update):
            duration = metadata.get('duration').seconds
      except:
         pass
-     user_id = int(update.message.chat.id) 
+     user_id = int(update.message.from_user.id) 
      ph_path = None
      data = find(user_id) 
      media = getattr(file, file.media.value)
@@ -79,16 +79,18 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
         if type == "document":
-           await bot.send_document(
-		    update.message.chat.id,
+          # await bot.send_document(
+		  #  update.message.chat.id,
+           await update.message.reply_document(
                     document=file_path,
                     thumb=ph_path, 
                     caption=caption, 
                     progress=progress_for_pyrogram,
                     progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ))
         elif type == "video": 
-            await bot.send_video(
-		    update.message.chat.id,
+            #await bot.send_video(
+		   # update.message.chat.id,
+            await update.message.reply_video(
 		    video=file_path,
 		    caption=caption,
 		    thumb=ph_path,
@@ -96,8 +98,9 @@ async def doc(bot,update):
 		    progress=progress_for_pyrogram,
 		    progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time))
         elif type == "audio": 
-            await bot.send_audio(
-		    update.message.chat.id,
+           # await bot.send_audio(
+		#    update.message.chat.id,
+            await update.message.reply_audio(
 		    audio=file_path,
 		    caption=caption,
 		    thumb=ph_path,
