@@ -30,7 +30,7 @@ async def rename(bot,update):
 @Client.on_message(filters.command("r"))
 async def doc(bot,update):
      #type = update.data.split('_')[1]
-     new_name = update.message.text
+     #new_name = update.message.text
      #new_filename = new_name.split(":-")[1]
      new_filename = update.text.split(" ", 1)[1]
      if not "!" in new_filename:
