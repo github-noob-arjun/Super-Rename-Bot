@@ -26,23 +26,22 @@ async def rename(bot,update):
 	reply_to_message_id=update.message.reply_to_message.id,  
 	reply_markup=ForceReply(True))
 	
-#@Client.on_callback_query(filters.regex("upload"))
-@Client.on_message(filters.command("r"))
+@Client.on_callback_query(filters.regex("upload"))
 async def doc(bot,update):
      await update.reply("wait")
-     #type = update.data.split('_')[1]
-     #new_name = update.message.text
-     #new_filename = new_name.split(":-")[1]
-     new_filename = update.text.split(" ", 1)[1]
+     type = update.data.split('_')[1]
+     new_name = update.message.text
+     new_filename = new_name.split(":-")[1]
+     #new_filename = update.text.split(" ", 1)[1]
      if not "!" in new_filename:
         new_filename = new_filename + ".mkv"
      else:
         new_filename.replace("!", ".")
      file_path = f"downloads/{new_filename}"
-     #file = update.message.reply_to_message
-     file = update.reply_to_message
-     #ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
-     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
+     file = update.message.reply_to_message
+     #file = update.reply_to_message
+     ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
+     #ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
      c_time = time.time()
      try:
      	path = await bot.download_media(message = file, progress=progress_for_pyrogram,progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳....",  ms, c_time   ))
@@ -60,11 +59,11 @@ async def doc(bot,update):
            duration = metadata.get('duration').seconds
      except:
         pass
-     #user_id = int(update.message.from_user.id)
-     user_id = int(update.from_user.id)
+     user_id = int(update.message.from_user.id)
+     #user_id = int(update.from_user.id)
      ph_path = None
-     #data = find(update.message.from_user.id)
-     data = find(update.from_user.id) 
+     data = find(update.message.from_user.id)
+     #data = find(update.from_user.id) 
      media = getattr(file, file.media.value)
      c_caption = data[1] 
      c_thumb = data[0]
