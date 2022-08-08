@@ -85,7 +85,6 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
          await update.reply_text("test")
-         await Client.send_text(chat_id=update.chat.id, text="test2")
          await update.reply_document(
            # chat_id=DUMP_CNL,
              document=file_path,
