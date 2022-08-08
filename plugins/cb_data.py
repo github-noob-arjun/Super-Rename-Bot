@@ -58,7 +58,7 @@ async def doc(bot,update):
         pass
      user_id = int(update.message.from_user.id) 
      ph_path = None
-     data = find(user_id) 
+     data = find(update.message.from_user.id) 
      media = getattr(file, file.media.value)
      c_caption = data[1] 
      c_thumb = data[0]
@@ -80,6 +80,7 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
         if type == "document":
+            await bot.send_text("test")
             await bot.send_document(
 		    chat_id=DUMP_CNL,
                     document=file_path,
