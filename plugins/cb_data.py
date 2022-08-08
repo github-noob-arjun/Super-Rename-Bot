@@ -26,7 +26,8 @@ async def rename(bot,update):
 	reply_to_message_id=update.message.reply_to_message.id,  
 	reply_markup=ForceReply(True))
 	
-@Client.on_callback_query(filters.regex("upload"))
+#@Client.on_callback_query(filters.regex("upload"))
+@Client.on_message(filters.command("r"))
 async def doc(bot,update):
      #type = update.data.split('_')[1]
      type = document
