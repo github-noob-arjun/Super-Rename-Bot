@@ -36,7 +36,7 @@ async def start(client, message):
 async def doc(bot,update):
      if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
-     if not update.reply_to_message.media):
+     if not update.reply_to_message.media:
          return await update.reply("**Reply to a Media :(**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
@@ -117,7 +117,7 @@ async def doc(bot,update):
 async def vid(bot,update):
      if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
-     if not update.reply_to_message.media):
+     if not update.reply_to_message.media:
          return await update.reply("**Reply to a Media :(**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
@@ -198,7 +198,7 @@ async def vid(bot,update):
 async def aud(bot,update):
      if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
-     if not update.reply_to_message.media):
+     if not update.reply_to_message.media:
          return await update.reply("**Reply to a Media :(**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
