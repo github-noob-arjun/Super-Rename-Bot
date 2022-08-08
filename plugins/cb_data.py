@@ -79,12 +79,13 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
         if type == "document":
-           #await bot.send_document(
-		#chat_id=update.message.chat.id,
-            try:
-                await bot.send_document(chat_id=update.from_user.id, document=file_path, thumb=ph_path, caption=caption, progress=progress_for_pyrogram, progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time))
-            except Exception as e: 
-                print(e) 
+            await bot.send_document(
+		    update.chat.id,
+                    document=file_path,
+                    thumb=ph_path, 
+                    caption=caption, 
+                    progress=progress_for_pyrogram,
+                    progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ))
         elif type == "video": 
             #await bot.send_video(
 		    #chat_id=update.message.reply_to_message.chat.id,
