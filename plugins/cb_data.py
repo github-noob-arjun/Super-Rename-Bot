@@ -36,7 +36,7 @@ async def doc(bot,update):
      if not "!" in new_filename:
         new_filename = new_filename + ".mkv"
      else:
-        new_filename.replace("!", ".")
+        new_filename = new_filename.replace("!", ".")
      file_path = f"downloads/{new_filename}"
      #file = update.message.reply_to_message
      file = update.reply_to_message
