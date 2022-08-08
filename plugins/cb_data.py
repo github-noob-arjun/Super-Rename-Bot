@@ -41,7 +41,8 @@ async def doc(bot,update):
         new_filename = new_filename + f".{ex}"
      file_path = f"downloads/{new_filename}"
      file = update.message.reply_to_message
-     ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
+     #ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
+     ms = await update.message.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
      c_time = time.time()
      try:
      	path = await bot.download_media(message = file, progress=progress_for_pyrogram,progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳....",  ms, c_time   ))
@@ -59,9 +60,11 @@ async def doc(bot,update):
            duration = metadata.get('duration').seconds
      except:
         pass
-     user_id = int(update.message.from_user.id) 
+     #user_id = int(update.message.from_user.id)
+     user_id = int(update.from_user.id)
      ph_path = None
-     data = find(update.message.from_user.id) 
+     #data = find(update.message.from_user.id)
+     data = find(update.from_user.id) 
      media = getattr(file, file.media.value)
      c_caption = data[1] 
      c_thumb = data[0]
@@ -83,9 +86,9 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
          if type == "document":
-             await update.message.reply_text("test")
-             await Client.send_text(chat_id=update.message.chat.id, text="test")
-             await update.message.reply_document(
+             await update.reply_text("test")
+             await Client.send_text(chat_id=update.chat.id, text="test")
+             await update.reply_document(
                 # chat_id=DUMP_CNL,
                  document=file_path,
                  thumb=ph_path, 
