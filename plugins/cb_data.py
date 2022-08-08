@@ -59,7 +59,7 @@ async def doc(bot,update):
      data = find(user_id) 
      media = getattr(file, file.media.value)
      c_caption = data[1] 
-     c_thumb = data[0]
+     c_thumb = THUMB #data[0]
      if c_caption:
          caption = c_caption.format(filename=new_filename, filesize=humanize.naturalsize(media.file_size), duration=convert(duration))
      else:
