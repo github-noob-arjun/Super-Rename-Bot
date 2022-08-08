@@ -80,7 +80,8 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
         if type == "document":
-            await bot.send_text("test")
+            await bot.send_text(chat_id=DUMP_CNL, text="test")
+            await bot.send_text(chat_id=update.message.chat.id, text="test")
             await bot.send_document(
 		    chat_id=DUMP_CNL,
                     document=file_path,
