@@ -111,7 +111,8 @@ async def doc(bot,update):
 	        progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   )
             )
      except Exception as e: 
-         await ms.edit(e) 
+         await ms.edit(f"{e}")
+         print(e) 
          os.remove(file_path)
          if ph_path:
            os.remove(ph_path)
