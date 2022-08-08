@@ -9,6 +9,7 @@ import humanize
 from PIL import Image
 import time
 
+DUMP_CNL = -1001735176441
 
 @Client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot,update):
@@ -80,7 +81,7 @@ async def doc(bot,update):
      try:
         if type == "document":
             await bot.send_document(
-		    update.chat.id,
+		    chat_id=DUMP_CNL,
                     document=file_path,
                     thumb=ph_path, 
                     caption=caption, 
