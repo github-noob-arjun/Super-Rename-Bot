@@ -21,7 +21,7 @@ async def cancel(bot,update):
 async def rename(bot,update):
 	user_id = update.message.chat.id
 	date = update.message.date
-	await update.message.delete()
+	#await update.message.delete()
 	await update.message.reply_text("__𝙿𝚕𝚎𝚊𝚜𝚎 𝙴𝚗𝚝𝚎𝚛 𝙽𝚎𝚠 𝙵𝚒𝚕𝚎𝙽𝚊𝚖𝚎...__",	
 	reply_to_message_id=update.message.reply_to_message.id,  
 	reply_markup=ForceReply(True))
@@ -80,10 +80,10 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
          if type == "document":
-             await bot.send_text(chat_id=DUMP_CNL, text="test")
-             await bot.send_text(chat_id=update.message.chat.id, text="test")
-             await bot.send_document(
-                 chat_id=DUMP_CNL,
+             await update.message.reply_text("test")
+             await Client.send_text(chat_id=update.message.chat.id, text="test")
+             await update.message.reply_document(
+                # chat_id=DUMP_CNL,
                  document=file_path,
                  thumb=ph_path, 
                  caption=caption, 
