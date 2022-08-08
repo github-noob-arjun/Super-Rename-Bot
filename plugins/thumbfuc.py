@@ -1,9 +1,9 @@
 from pyrogram import Client, filters
 from helper.database import find, delthumb, addthumb
 
-@Client.on_message(filters.private & filters.command(['viewthumb']))
+@Client.on_message(filters.group & filters.command(['viewthumb']))
 async def viewthumb(client,message):
-    thumb = find(int(message.chat.id))[0]
+    thumb = find(int(message.from_user.id))[0]
     if thumb:
        await client.send_photo(
 	   chat_id=message.chat.id, 
@@ -11,14 +11,14 @@ async def viewthumb(client,message):
     else:
         await message.reply_text("**You dont have any custom Thumbnail**") 
 		
-@Client.on_message(filters.private & filters.command(['delthumb']))
+@Client.on_message(filters.group & filters.command(['delthumb']))
 async def removethumb(client,message):
-    delthumb(int(message.chat.id))
+    delthumb(int(message.from_user.id))
     await message.reply_text("**Custom Thumbnail Deleted Successfully**")
 	
-@Client.on_message(filters.private & filters.photo)
+@Client.on_message(filters.group & filters.photo)
 async def addthumbs(client,message):
     file_id = str(message.photo.file_id)
-    addthumb(message.chat.id , file_id)
+    addthumb(message.from_user.id , file_id)
     await message.reply_text("**Your Custom Thumbnail Saved Successfully** ✅")
 	
