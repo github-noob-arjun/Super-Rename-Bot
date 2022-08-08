@@ -34,7 +34,7 @@ async def start(client, message):
 
 @Client.on_message(filters.group & filters.command("rdoc"))
 async def doc(bot,update):
-     if not update.reply_to_message and update.reply_to_message.media
+     if not update.reply_to_message.media
          return update.reply("**Reply to a Media :)**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
@@ -113,7 +113,7 @@ async def doc(bot,update):
 
 @Client.on_message(filters.group & filters.command("rvid"))
 async def vid(bot,update):
-     if not update.reply_to_message and update.reply_to_message.media
+     if not update.reply_to_message.media
          return update.reply("**Reply to a Media :)**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
@@ -192,7 +192,7 @@ async def vid(bot,update):
 
 @Client.on_message(filters.group & filters.command("raud"))
 async def aud(bot,update):
-     if not update.reply_to_message and update.reply_to_message.media
+     if not update.reply_to_message.media
          return update.reply("**Reply to a Media :)**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
