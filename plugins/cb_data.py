@@ -94,7 +94,7 @@ async def doc(bot,update):
         os.remove(ph_path) 
 
 @Client.on_message(filters.command("rvid"))
-async def doc(bot,update):
+async def vid(bot,update):
      #type = update.data.split('_')[1]
      #new_name = update.message.text
      #new_filename = new_name.split(":-")[1]
@@ -169,7 +169,7 @@ async def doc(bot,update):
         os.remove(ph_path) 
 
 @Client.on_message(filters.command("raud"))
-async def doc(bot,update):
+async def aud(bot,update):
      #type = update.data.split('_')[1]
      #new_name = update.message.text
      #new_filename = new_name.split(":-")[1]
