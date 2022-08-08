@@ -37,10 +37,10 @@ async def doc(bot,update):
      if not "!" in new_filename:
         new_filename = new_filename + ".mkv"
      else:
-        ex = new_filename.split("!")[1]
-        new_filename = new_filename + f".{ex}"
+        new_filename.replace("!", ".")
      file_path = f"downloads/{new_filename}"
-     file = update.message.reply_to_message
+     #file = update.message.reply_to_message
+     file = update.reply_to_message
      #ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
      ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
      c_time = time.time()
