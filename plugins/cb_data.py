@@ -9,12 +9,17 @@ import humanize
 from PIL import Image
 import time
 
-DUMP_CNL = -1001735176441
+CLOSE_BTN = InlineKeyboardMarkup(
+    [[
+    InlineKeyboardButton('❎ 𝖢𝖺𝗇𝖼𝖾𝗅', callback_data='cancel')
+    ]]
+)
 
 @Client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot,update):
 	try:
            await update.message.delete()
+           await update.answer("process cancelled ✅")
 	except:
            return
 	
@@ -32,7 +37,7 @@ async def doc(bot,update):
      #file = update.message.reply_to_message
      file = update.reply_to_message
      #ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
-     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
+     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...", reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
      c_time = time.time()
      try:
      	path = await bot.download_media(message = file, progress=progress_for_pyrogram,progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳....",  ms, c_time   ))
@@ -72,7 +77,7 @@ async def doc(bot,update):
          img = Image.open(ph_path)
          img.resize((320, 320))
          img.save(ph_path, "JPEG")
-     await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....")
+     await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....", reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
      c_time = time.time() 
      try:
          await update.reply_document(
@@ -107,7 +112,7 @@ async def vid(bot,update):
      #file = update.message.reply_to_message
      file = update.reply_to_message
      #ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
-     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
+     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...", 1reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
      c_time = time.time()
      try:
      	path = await bot.download_media(message = file, progress=progress_for_pyrogram,progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳....",  ms, c_time   ))
@@ -147,7 +152,7 @@ async def vid(bot,update):
          img = Image.open(ph_path)
          img.resize((320, 320))
          img.save(ph_path, "JPEG")
-     await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....")
+     await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....", reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
      c_time = time.time() 
      try:
          await update.reply_video(
@@ -182,7 +187,7 @@ async def aud(bot,update):
      #file = update.message.reply_to_message
      file = update.reply_to_message
      #ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
-     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
+     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...", reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
      c_time = time.time()
      try:
      	path = await bot.download_media(message = file, progress=progress_for_pyrogram,progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳....",  ms, c_time   ))
@@ -222,7 +227,7 @@ async def aud(bot,update):
          img = Image.open(ph_path)
          img.resize((320, 320))
          img.save(ph_path, "JPEG")
-     await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....")
+     await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....", reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
      c_time = time.time() 
      try:
          await update.reply_audio(
