@@ -34,8 +34,10 @@ async def start(client, message):
 
 @Client.on_message(filters.group & filters.command("rdoc"))
 async def doc(bot,update):
-     if not (update.reply_to_message.media and update.reply_to_message):
+     if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
+     if not update.reply_to_message.media):
+         return await update.reply("**Reply to a Media :(**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
      #type = update.data.split('_')[1]
@@ -113,8 +115,10 @@ async def doc(bot,update):
 
 @Client.on_message(filters.group & filters.command("rvid"))
 async def vid(bot,update):
-     if not (update.reply_to_message.media and update.reply_to_message):
+     if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
+     if not update.reply_to_message.media):
+         return await update.reply("**Reply to a Media :(**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
      #type = update.data.split('_')[1]
@@ -192,8 +196,10 @@ async def vid(bot,update):
 
 @Client.on_message(filters.group & filters.command("raud"))
 async def aud(bot,update):
-     if not (update.reply_to_message.media and update.reply_to_message):
+     if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
+     if not update.reply_to_message.media):
+         return await update.reply("**Reply to a Media :(**")
      if len(update.command) == 1:
          return await update.reply("**Give me a new file name for Rename :)**")
      #type = update.data.split('_')[1]
