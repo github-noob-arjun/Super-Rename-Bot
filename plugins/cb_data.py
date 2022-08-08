@@ -37,10 +37,10 @@ async def doc(bot,update):
      #file = update.message.reply_to_message
      file = update.reply_to_message
      #ms = await update.message.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
-     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...", reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
+     ms = await update.reply("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳...")
      c_time = time.time()
      try:
-     	path = await bot.download_media(message = file, progress=progress_for_pyrogram,progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳....",  ms, c_time   ))
+     	path = await bot.download_media(message = file, progress=progress_for_pyrogram,progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳....",  ms, c_time   ), reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
      except Exception as e:
      	await ms.edit(e)
      	return 
@@ -77,7 +77,7 @@ async def doc(bot,update):
          img = Image.open(ph_path)
          img.resize((320, 320))
          img.save(ph_path, "JPEG")
-     await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....", reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
+     await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....")
      c_time = time.time() 
      try:
          await update.reply_document(
@@ -86,7 +86,7 @@ async def doc(bot,update):
              thumb=ph_path, 
              caption=caption, 
              progress=progress_for_pyrogram,
-             progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ))
+             progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ), reply_markup = InlineKeyboardMarkup(CLOSE_BTN))
      except Exception as e: 
          await ms.edit(f"{e}")
          print(e) 
