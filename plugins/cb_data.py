@@ -9,11 +9,6 @@ import humanize
 from PIL import Image
 import time
 
-CLOSE_BTN = InlineKeyboardMarkup(
-    [[
-    InlineKeyboardButton('❎ 𝖢𝖺𝗇𝖼𝖾𝗅', callback_data='cancel')
-    ]]
-)
 
 @Client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot,update):
@@ -23,6 +18,20 @@ async def cancel(bot,update):
 	except:
            return
 	
+@Client.on_message(filters.private & filters.command(["start"]))
+async def start(client, message):
+    insert(int(message.chat.id))
+    await message.reply_text(
+       text=f"""👋 Hai {message.from_user.mention} \n𝙸'𝚖 𝙰 𝚂𝚒𝚖𝚙𝚕𝚎 𝙵𝚒𝚕𝚎 𝚁𝚎𝚗𝚊𝚖𝚎+𝙵𝚒𝚕𝚎 𝚃𝚘 𝚅𝚒𝚍𝚎𝚘 𝙲𝚘𝚟𝚎𝚛𝚝𝚎𝚛 𝙱𝙾𝚃 𝚆𝚒𝚝𝚑 𝙿𝚎𝚛𝚖𝚊𝚗𝚎𝚗𝚝 𝚃𝚑𝚞𝚖𝚋𝚗𝚊𝚒𝚕!\n\nI can work only Some groups""",
+       reply_markup=InlineKeyboardMarkup( [[
+           InlineKeyboardButton("💠 𝖥𝗈𝗋 𝖡𝗈𝗍 𝖤𝖽𝗂𝗍𝗂𝗇𝗀 💠", url='https://t.me/github_noob'),
+           InlineKeyboardButton('❎ 𝖢𝖺𝗇𝖼𝖾𝗅', callback_data='cancel')
+           ]]
+          )
+       )
+    return
+
+
 @Client.on_message(filters.command("rdoc"))
 async def doc(bot,update):
      #type = update.data.split('_')[1]
