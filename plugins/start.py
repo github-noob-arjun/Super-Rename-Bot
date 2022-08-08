@@ -47,6 +47,11 @@ async def send_doc(client, message):
         reply_markup = InlineKeyboardMarkup([[ InlineKeyboardButton("📝 𝚁𝙴𝙽𝙰𝙼𝙴",callback_data = "rename")],
         [InlineKeyboardButton("𝙲𝙰𝙽𝙲𝙴𝙻 ✖️",callback_data = "cancel")  ]]))
 
+@Client.on_message(filters.photo)
+async def photoid(client, message):     
+    await message.reply(
+        text=f"**PHOTO ID** :- \n `{message.photo.file_id}` add this id on HEROKU vars")
+
 
 @Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
