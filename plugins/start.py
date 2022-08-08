@@ -35,7 +35,7 @@ async def start(client, message):
        )
     return
 
-@Client.on_message(filters.private &( filters.document | filters.audio | filters.video ))
+@Client.on_message(( filters.document | filters.audio | filters.video ))
 async def send_doc(client, message):
     file = getattr(message, message.media.value)
     filename = file.file_name
