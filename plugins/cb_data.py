@@ -28,7 +28,6 @@ async def rename(bot,update):
 	
 @Client.on_callback_query(filters.regex("upload"))
 async def doc(bot,update):
-     await update.reply("wait")
      type = update.data.split('_')[1]
      new_name = update.message.text
      new_filename = new_name.split(":-")[1]
