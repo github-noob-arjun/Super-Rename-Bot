@@ -30,7 +30,6 @@ async def rename(bot,update):
 @Client.on_message(filters.command("r"))
 async def doc(bot,update):
      #type = update.data.split('_')[1]
-     type = "document"
      new_name = update.message.text
      #new_filename = new_name.split(":-")[1]
      new_filename = update.text.split(" ", 1)[1]
@@ -85,38 +84,15 @@ async def doc(bot,update):
      await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....")
      c_time = time.time() 
      try:
-         if type == "document":
-             await update.reply_text("test")
-             await Client.send_text(chat_id=update.chat.id, text="test")
-             await update.reply_document(
-                # chat_id=DUMP_CNL,
-                 document=file_path,
-                 thumb=ph_path, 
-                 caption=caption, 
-                 progress=progress_for_pyrogram,
-                 progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ))
-         elif type == "video": 
-            #await bot.send_video(
-		    #chat_id=update.message.reply_to_message.chat.id,
-             await update.message.reply_video(
-                 video=file_path,
-	         caption=caption,
-	         thumb=ph_path,
-	         duration=duration,
-	         progress=progress_for_pyrogram,
-                 progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time)
-             )
-         elif type == "audio": 
-            #await bot.send_audio(
-		    #chat_id=update.message.reply_to_message.chat.id,
-             await update.message.reply_audio(
-	         audio=file_path,
-	         caption=caption,
-	         thumb=ph_path,
-	         duration=duration,
-	         progress=progress_for_pyrogram,
-	         progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   )
-             )
+         await update.reply_text("test")
+         await Client.send_text(chat_id=update.chat.id, text="test2")
+         await update.reply_document(
+           # chat_id=DUMP_CNL,
+             document=file_path,
+             thumb=ph_path, 
+             caption=caption, 
+             progress=progress_for_pyrogram,
+             progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ))
      except Exception as e: 
          await ms.edit(f"{e}")
          print(e) 
