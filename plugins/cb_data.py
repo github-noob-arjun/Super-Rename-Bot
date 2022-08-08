@@ -156,7 +156,7 @@ async def vid(bot,update):
              thumb=ph_path, 
              duration=duration 
              progress=progress_for_pyrogram,
-             progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time   ))
+             progress_args=( "𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....",  ms, c_time))
      except Exception as e: 
          await ms.edit(f"{e}")
          print(e) 
