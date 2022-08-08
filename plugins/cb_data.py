@@ -84,7 +84,6 @@ async def doc(bot,update):
      await ms.edit("𝚃𝚁𝚈𝙸𝙽𝙶 𝚃𝙾 𝚄𝙿𝙻𝙾𝙰𝙳𝙸𝙽𝙶....")
      c_time = time.time() 
      try:
-         await update.reply_text("test")
          await update.reply_document(
            # chat_id=DUMP_CNL,
              document=file_path,
