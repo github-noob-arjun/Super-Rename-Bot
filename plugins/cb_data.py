@@ -32,8 +32,10 @@ async def start(client, message):
     return
 
 
-@Client.on_message(filters.command("rdoc"))
+@Client.on_message(filters.group & filters.command("rdoc"))
 async def doc(bot,update):
+     if len(update.command) == 1:
+         return await update.reply("**Give me a new file name for Rename :)**")
      #type = update.data.split('_')[1]
      #new_name = update.message.text
      #new_filename = new_name.split(":-")[1]
@@ -107,8 +109,10 @@ async def doc(bot,update):
      if ph_path:
         os.remove(ph_path) 
 
-@Client.on_message(filters.command("rvid"))
+@Client.on_message(filters.group & filters.command("rvid"))
 async def vid(bot,update):
+     if len(update.command) == 1:
+         return await update.reply("**Give me a new file name for Rename :)**")
      #type = update.data.split('_')[1]
      #new_name = update.message.text
      #new_filename = new_name.split(":-")[1]
@@ -182,8 +186,10 @@ async def vid(bot,update):
      if ph_path:
         os.remove(ph_path) 
 
-@Client.on_message(filters.command("raud"))
+@Client.on_message(filters.group & filters.command("raud"))
 async def aud(bot,update):
+     if len(update.command) == 1:
+         return await update.reply("**Give me a new file name for Rename :)**")
      #type = update.data.split('_')[1]
      #new_name = update.message.text
      #new_filename = new_name.split(":-")[1]
