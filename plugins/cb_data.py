@@ -79,9 +79,9 @@ async def doc(bot,update):
      c_time = time.time() 
      try:
         if type == "document":
-           #await bot.send_document(
-		    #chat_id=update.message.reply_to_message.chat.id,
-            await update.message.reply_document(
+           await Client.send_document(
+		chat_id=update.message.chat.id,
+           # await update.message.reply_document(
                 document=file_path,
                 thumb=ph_path, 
                 caption=caption, 
