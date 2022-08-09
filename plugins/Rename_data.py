@@ -45,7 +45,7 @@ async def help(client, message):
 /raud - Rename as audio (group only)
 
 /addthumb - set new thumbnail (group only)
-/delthumb - delete current thumbnail (group only)
+/delthumb - delete current thumbnail (Don't use)
 /viewthumb - show your thumbnail (group only)**
 """,
        reply_markup=InlineKeyboardMarkup( [[
