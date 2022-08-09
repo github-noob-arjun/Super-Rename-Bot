@@ -45,7 +45,7 @@ async def help(client, message):
 /addthumb - set new thumbnail (group only)
 /delthumb - delete current thumbnail (group only)
 /viewthumb - show your thumbnail (group only)**
-"""
+""",
        reply_markup=InlineKeyboardMarkup( [[
            InlineKeyboardButton("💠 𝖥𝗈𝗋 𝖡𝗈𝗍 𝖤𝖽𝗂𝗍𝗂𝗇𝗀 💠", url='https://t.me/github_noob'),
            InlineKeyboardButton("❎ 𝖢𝖺𝗇𝖼𝖾𝗅", callback_data='cancel')
@@ -53,7 +53,7 @@ async def help(client, message):
        )
     )
 
-@Client.on_message(filters.group & filters.command("rdoc"))
+@Client.on_message(filters.group & filters.command("rdoc", "rename"))
 async def doc(bot,update):
      if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
