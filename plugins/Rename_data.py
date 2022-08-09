@@ -36,7 +36,9 @@ async def help(client, message):
 
 <i><b><u>My commands</u></b></i>
 
-**/start - check alive (in PM)
+**⚠️ First add thumbnail after Rename. Otherwise Rename not working..
+
+/start - check alive (in PM)
 /help - for this message (group only)
 
 /rename - Rename as document (group only)
@@ -45,7 +47,6 @@ async def help(client, message):
 /raud - Rename as audio (group only)
 
 /addthumb - set new thumbnail (group only)
-/delthumb - delete current thumbnail (Don't use)
 /viewthumb - show your thumbnail (group only)**
 """,
        reply_markup=InlineKeyboardMarkup( [[
