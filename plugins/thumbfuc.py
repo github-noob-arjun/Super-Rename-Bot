@@ -4,7 +4,7 @@ from helper.database import find, delthumb, addthumb
 @Client.on_message(filters.group & filters.command(['viewthumb']))
 async def viewthumb(client,message):
     try:
-        thumb = find(message.from_user.id)[0]
+        thumb = find(message.from_user.id)
         try:
             if thumb:
                 try:
