@@ -14,9 +14,13 @@ async def removethumb(client,message):
     delthumb(int(message.from_user.id))
     await message.reply_text("**Custom Thumbnail Deleted Successfully**")
 	
-@Client.on_message(filters.group & filters.photo)
+@Client.on_message(filters.group & filters.command(['addthumb']))
 async def addthumbs(client,message):
-    file_id = str(message.photo.file_id)
+    if not update.reply_to_message:
+        return await update.reply("**Reply to a photo :)**")
+    if not update.reply_to_message.photo:
+        return await update.reply("**this is not a photo :)**")
+    file_id = str(message.reply_to_message.photo.file_id)
     addthumb(message.from_user.id , file_id)
     await message.reply_text("**Your Custom Thumbnail Saved Successfully** ✅")
 	
