@@ -51,6 +51,7 @@ async def help(client, message):
 """,
        reply_markup=InlineKeyboardMarkup( [[
            InlineKeyboardButton("💠 𝖥𝗈𝗋 𝖡𝗈𝗍 𝖤𝖽𝗂𝗍𝗂𝗇𝗀 💠", url='https://t.me/github_noob'),
+           ],[
            InlineKeyboardButton("❎ 𝖢𝖺𝗇𝖼𝖾𝗅", callback_data='cancel')
            ]]
        )
