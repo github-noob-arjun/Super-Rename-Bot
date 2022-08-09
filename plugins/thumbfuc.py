@@ -7,11 +7,7 @@ async def viewthumb(client,message):
         thumb = find(message.from_user.id)
         try:
             if thumb:
-                try:
-                    await client.send_photo(client.chat.id, photo=thumb, caption="your current caption")
-                except Exception as e:
-                    print(e)
-                    await message.reply_photo(photo=thumb, caption="your current caption")
+                await message.reply_photo(photo=thumb, caption="your current caption")
             else:
                 await message.reply_text("**You dont have any custom Thumbnail**")
         except Exception as a:
