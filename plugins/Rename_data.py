@@ -23,6 +23,7 @@ async def start(client, message):
        text=f"""👋 Hai {message.from_user.mention} \n𝙸'𝚖 𝙰 𝚂𝚒𝚖𝚙𝚕𝚎 𝙵𝚒𝚕𝚎 𝚁𝚎𝚗𝚊𝚖𝚎+𝙵𝚒𝚕𝚎 𝚃𝚘 𝚅𝚒𝚍𝚎𝚘 𝙲𝚘𝚟𝚎𝚛𝚝𝚎𝚛 𝙱𝙾𝚃 𝚆𝚒𝚝𝚑 𝙿𝚎𝚛𝚖𝚊𝚗𝚎𝚗𝚝 𝚃𝚑𝚞𝚖𝚋𝚗𝚊𝚒𝚕!\n\nI can work only Some groups""",
        reply_markup=InlineKeyboardMarkup( [[
            InlineKeyboardButton("💠 𝖥𝗈𝗋 𝖡𝗈𝗍 𝖤𝖽𝗂𝗍𝗂𝗇𝗀 💠", url='https://t.me/github_noob'),
+           ],[
            InlineKeyboardButton("❎ 𝖢𝖺𝗇𝖼𝖾𝗅", callback_data='cancel')
            ]]
        )
@@ -38,6 +39,7 @@ async def help(client, message):
 **/start - check alive (in PM)
 /help - for this message (group only)
 
+/rename - Rename as document (group only)
 /rdoc - Rename as document (group only)
 /rvid - Rename as stream file (group only)
 /raud - Rename as audio (group only)
