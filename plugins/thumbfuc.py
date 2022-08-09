@@ -3,12 +3,18 @@ from helper.database import find, delthumb, addthumb
 
 @Client.on_message(filters.group & filters.command(['viewthumb']))
 async def viewthumb(client,message):
-    thumb = find(int(message.from_user.id))[0]
-    if thumb:
-       await message.reply_photo(photo=thumb)
-    else:
-        await message.reply_text("**You dont have any custom Thumbnail**") 
-		
+    try:
+        thumb = find(int(message.from_user.id))[0]
+        try:
+            if thumb:
+                await message.reply_photo(photo=thumb)
+            else:
+                await message.reply_text("**You dont have any custom Thumbnail**")
+        except Exception as a:
+            await message.reply_text(f"{a}") 
+    except Exception as e:
+        await message.reply_text(f"{e}")
+
 #@Client.on_message(filters.group & filters.command(['delthumb']))
 #async def removethumb(client,message):
     #delthumb(int(message.from_user.id))
