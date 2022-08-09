@@ -3,7 +3,6 @@ from pyrogram import Client, filters
 from pyrogram.types import (  InlineKeyboardButton, InlineKeyboardMarkup,ForceReply)
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
-from helper.database import find
 import os 
 import humanize
 from PIL import Image
@@ -109,15 +108,10 @@ async def doc(bot,update):
      user_id = int(update.from_user.id)
      ph_path = None
      #data = find(update.message.from_user.id)
-     data = find(update.from_user.id) 
      media = getattr(file, file.media.value)
-     c_caption = data[1] 
-     c_thumb = data[0]
+     c_thumb = THUMB_1
      new_cap = new_filename.replace("!", ".")
-     if c_caption:
-         caption = c_caption.format(filename=new_cap, filesize=humanize.naturalsize(media.file_size), duration=convert(duration))
-     else:
-         caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
@@ -190,15 +184,10 @@ async def vid(bot,update):
      user_id = int(update.from_user.id)
      ph_path = None
      #data = find(update.message.from_user.id)
-     data = find(update.from_user.id) 
      media = getattr(file, file.media.value)
-     c_caption = data[1] 
-     c_thumb = data[0]
+     c_thumb = THUMB_1
      new_cap = new_filename.replace("!", ".")
-     if c_caption:
-         caption = c_caption.format(filename=new_cap, filesize=humanize.naturalsize(media.file_size), duration=convert(duration))
-     else:
-         caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
@@ -271,15 +260,10 @@ async def aud(bot,update):
      user_id = int(update.from_user.id)
      ph_path = None
      #data = find(update.message.from_user.id)
-     data = find(update.from_user.id) 
      media = getattr(file, file.media.value)
-     c_caption = data[1] 
-     c_thumb = data[0]
+     c_thumb = THUMB_1
      new_cap = new_filename.replace("!", ".")
-     if c_caption:
-         caption = c_caption.format(filename=new_cap, filesize=humanize.naturalsize(media.file_size), duration=convert(duration))
-     else:
-         caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
