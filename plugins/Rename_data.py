@@ -57,7 +57,7 @@ async def help(client, message):
        )
     )
 
-@Client.on_message(filters.group & filters.command("rdoc", "rename"))
+@Client.on_message(filters.group & filters.command(["rdoc", "rename"]))
 async def doc(bot,update):
      if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
