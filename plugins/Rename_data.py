@@ -8,7 +8,7 @@ import humanize
 from PIL import Image
 import time
 
-THUMB_1 = "AgACAgUAAxkBAAIDFWLyD2LsAvOT0ET56FKEtzopvmykAALCrjEbYFRoVXmxwmvZMLdHAAgBAAMCAAN5AAceBA"
+THUMB_1 = os.environ.get("THUMBNAIL_1", None)
 
 @Client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot,update):
