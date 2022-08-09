@@ -58,13 +58,17 @@ If you want another extension use like this :-** `!AVC`
 /start - check alive (in PM)
 /help - for this message (group only)
 
+<i><b><u>Thumbnail 1</u></b></i>
+/viewthumb1 - show thumbnail1
 /rename - Rename as document (group only)
-/rdoc - Rename as document (group only)
 /rvid - Rename as stream file (group only)
 /raud - Rename as audio (group only)
 
-/addthumb - set new thumbnail (group only)
-/viewthumb - show your thumbnail (group only)**
+<i><b><u>Thumbnail 2</u></b></i>
+/viewthumb2 - show thumbnail2
+/rename2 - Rename as document (group only)
+/rvid2 - Rename as stream file (group only)
+/raud2 - Rename as audio (group only)**
 """,
        reply_markup=InlineKeyboardMarkup( [[
            InlineKeyboardButton("💠 𝖥𝗈𝗋 𝖡𝗈𝗍 𝖤𝖽𝗂𝗍𝗂𝗇𝗀 💠", url='https://t.me/github_noob'),
@@ -73,6 +77,14 @@ If you want another extension use like this :-** `!AVC`
            ]]
        )
     )
+
+@Client.on_message(filters.group & filters.command(["viewthumb2"]))
+async def help(client, message):
+    await message.reply_photo(THUB_2)
+
+@Client.on_message(filters.group & filters.command(["viewthumb1"]))
+async def help(client, message):
+    await message.reply_photo(THUB_1)
 
 @Client.on_message(filters.group & filters.command(["rdoc", "rename"]))
 async def doc(bot,update):
