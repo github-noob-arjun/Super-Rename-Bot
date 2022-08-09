@@ -8,6 +8,8 @@ import humanize
 from PIL import Image
 import time
 
+THUMB_1 = "AgACAgUAAxkBAAIDFWLyD2LsAvOT0ET56FKEtzopvmykAALCrjEbYFRoVXmxwmvZMLdHAAgBAAMCAAN5AAceBA"
+
 @Client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot,update):
 	try:
