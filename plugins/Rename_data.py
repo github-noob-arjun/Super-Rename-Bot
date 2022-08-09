@@ -80,11 +80,11 @@ async def photoid(client, message):
 
 @Client.on_message(filters.group & filters.command(["viewthumb2"]))
 async def thumb1(client, message):
-    await message.reply_photo(THUB_2)
+    await message.reply_photo(photo=THUB_2)
 
 @Client.on_message(filters.group & filters.command(["viewthumb1"]))
 async def thumb2(client, message):
-    await message.reply_photo(THUB_1)
+    await message.reply_photo(photo=THUB_1)
 
 @Client.on_message(filters.group & filters.command(["rdoc", "rename"]))
 async def doc(bot,update):
