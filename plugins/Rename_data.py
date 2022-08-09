@@ -302,7 +302,7 @@ async def aud(bot,update):
         os.remove(ph_path) 
 
 @Client.on_message(filters.group & filters.command(["rdoc2", "rename2"]))
-async def doc(bot,update):
+async def doc2(bot,update):
      if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
      if not update.reply_to_message.media:
@@ -377,7 +377,7 @@ async def doc(bot,update):
         os.remove(ph_path) 
 
 @Client.on_message(filters.group & filters.command("rvid2"))
-async def vid(bot,update):
+async def vid2(bot,update):
      if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
      if not update.reply_to_message.media:
@@ -453,7 +453,7 @@ async def vid(bot,update):
         os.remove(ph_path) 
 
 @Client.on_message(filters.group & filters.command("raud2"))
-async def aud(bot,update):
+async def aud2(bot,update):
      if not update.reply_to_message:
          return await update.reply("**Reply to a Media :)**")
      if not update.reply_to_message.media:
