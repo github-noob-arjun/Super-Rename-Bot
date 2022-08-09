@@ -43,9 +43,9 @@ async def help(client, message):
 If you want another extension use like this :-** `!AVC`
 
 <i><b><u>Default extinctions</u></b></i>
-• document (/rdoc) :- .MKV
-• video (/vid) :- .MP4
-• audio (/raud) :- .MP3
+• document :- .MKV
+• video :- .MP4
+• audio :- .MP3
 
 <i><b><u>My commands</u></b></i>
 
@@ -53,13 +53,13 @@ If you want another extension use like this :-** `!AVC`
 /help - for this message (group only)
 
 <i><b>Thumbnail 1</b></i>
-/viewthumb1 - show thumbnail1
+
 /rename - Rename as document (group only)
 /rvid - Rename as stream file (group only)
 /raud - Rename as audio (group only)
 
 <i><b>Thumbnail 2</b></i>
-/viewthumb2 - show thumbnail2
+
 /rename2 - Rename as document (group only)
 /rvid2 - Rename as stream file (group only)
 /raud2 - Rename as audio (group only)**""",
@@ -78,13 +78,6 @@ async def photoid(client, message):
         text=f"**PHOTO ID** :- \n `{message.photo.file_id}`"
     )
 
-@Client.on_message(filters.group & filters.command(["viewthumb2"]))
-async def thumb1(client, message):
-    await message.reply_photo(photo=THUB_2)
-
-@Client.on_message(filters.group & filters.command(["viewthumb1"]))
-async def thumb2(client, message):
-    await message.reply_photo(photo=THUB_1)
 
 @Client.on_message(filters.group & filters.command(["rdoc", "rename"]))
 async def doc(bot,update):
