@@ -62,10 +62,10 @@ If you want another extension use like this :-** `!AVC`
 /viewthumb2 - show thumbnail2
 /rename2 - Rename as document (group only)
 /rvid2 - Rename as stream file (group only)
-/raud2 - Rename as audio (group only)**
-""",
-       reply_markup=InlineKeyboardMarkup( [[
-           InlineKeyboardButton("💠 𝖥𝗈𝗋 𝖡𝗈𝗍 𝖤𝖽𝗂𝗍𝗂𝗇𝗀 💠", url='https://t.me/github_noob'),
+/raud2 - Rename as audio (group only)**""",
+       reply_markup=InlineKeyboardMarkup(
+           [[
+           InlineKeyboardButton("💠 𝖥𝗈𝗋 𝖡𝗈𝗍 𝖤𝖽𝗂𝗍𝗂𝗇𝗀 💠", url='https://t.me/github_noob')
            ],[
            InlineKeyboardButton("❎ 𝖢𝖺𝗇𝖼𝖾𝗅", callback_data='cancel')
            ]]
@@ -79,11 +79,11 @@ async def photoid(client, message):
     )
 
 @Client.on_message(filters.group & filters.command(["viewthumb2"]))
-async def help(client, message):
+async def thumb1(client, message):
     await message.reply_photo(THUB_2)
 
 @Client.on_message(filters.group & filters.command(["viewthumb1"]))
-async def help(client, message):
+async def thumb2(client, message):
     await message.reply_photo(THUB_1)
 
 @Client.on_message(filters.group & filters.command(["rdoc", "rename"]))
