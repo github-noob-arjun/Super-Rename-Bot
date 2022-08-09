@@ -1,6 +1,8 @@
 from pyrogram import Client, filters
 from helper.database import find, delthumb, addthumb
 
+DOWNLOAD_LOCATION = "./DOWNLOADS"
+
 @Client.on_message(filters.group & filters.command(['viewthumb']))
 async def viewthumb(client,message):
     try:
@@ -35,3 +37,31 @@ async def addthumbs(client,message):
             await message.reply_text(f"{a}")
     except Exception as a:
         await message.reply_text(f"{a}")
+
+
+@Client.on_message(filters.group & filters.command(['viewthumb']))
+async def show_thumb(bot, update):
+    thumb_image_path = DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
+    if not os.path.exists(thumb_image_path):
+        mes = await thumb(update.from_user.id)
+        if mes != None:
+            m = await bot.get_messages(update.chat.id, mes.msg_id)
+            await m.download(file_name=thumb_image_path)
+            thumb_image_path = thumb_image_path
+        else:
+            thumb_image_path = None    
+    
+    if thumb_image_path is not None:
+        try:
+            await bot.send_photo(
+                chat_id=update.chat.id,
+                photo=thumb_image_path,
+                reply_to_message_id=update.message_id
+            )
+        except:
+            pass
+    else:
+        await update.reply_text("**first add a thumbnail. Use /addthumb**")
+        
+
+
