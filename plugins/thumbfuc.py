@@ -4,7 +4,7 @@ from helper.database import find, delthumb, addthumb
 @Client.on_message(filters.group & filters.command(['viewthumb']))
 async def viewthumb(client,message):
     try:
-        thumb = find(message.from_user.id)[0]
+        thumb = find(int(message.from_user.id))[0]
         try:
             if thumb:
                 await message.reply_photo(photo=thumb)
@@ -29,7 +29,7 @@ async def addthumbs(client,message):
     try:
         file_id = str(message.reply_to_message.photo.file_id)
         try:
-            addthumb(message.from_user.id , file_id)
+            addthumb(int(message.from_user.id) , file_id)
             await message.reply_text("**Your Custom Thumbnail Saved Successfully** ✅")
         except Exception as a:
             await message.reply_text(f"{a}")
