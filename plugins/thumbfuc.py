@@ -31,7 +31,7 @@ async def addthumbs(client,message):
         try:
             addthumb(message.from_user.id , file_id)
             await message.reply_text("**Your Custom Thumbnail Saved Successfully** ✅")
-	except Exception as a:
+        except Exception as a:
             await message.reply_text(f"{a}")
     except Exception as a:
         await message.reply_text(f"{a}")
