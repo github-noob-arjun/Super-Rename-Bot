@@ -34,9 +34,19 @@ async def help(client, message):
     await message.reply_text(
        text=f"""👋 Hai {message.from_user.mention}.!
 
-<i><b><u>My commands</u></b></i>
+<i><b><u>My helps</u></b></i>
 
 **⚠️ First add thumbnail after Rename. Otherwise Rename not working..
+
+**You don't need to use any extension.
+If you want another extension use like this :-** `!AVC`
+
+<i><b><u>Default extinctions</u></b></i>
+• document (/rdoc) :- .MKV
+• video (/vid) :- .MP4
+• audio (/raud) :- .MP3
+
+<i><b><u>My commands</u></b></i>
 
 /start - check alive (in PM)
 /help - for this message (group only)
