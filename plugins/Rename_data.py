@@ -19,10 +19,6 @@ async def cancel(bot,update):
 	except:
            return
 	
-@Client.on_message(filters.photo)
-async def photoid(client, message):     
-    await message.reply(
-        text=f"**PHOTO ID** :- \n `{message.photo.file_id}`")
 
 @Client.on_message(filters.private & filters.command(["start"]))
 async def start(client, message):
@@ -74,6 +70,12 @@ If you want another extension use like this :-** `!AVC`
            InlineKeyboardButton("❎ 𝖢𝖺𝗇𝖼𝖾𝗅", callback_data='cancel')
            ]]
        )
+    )
+
+@Client.on_message(filters.photo)
+async def photoid(client, message):     
+    await message.reply(
+        text=f"**PHOTO ID** :- \n `{message.photo.file_id}`"
     )
 
 @Client.on_message(filters.group & filters.command(["viewthumb2"]))
