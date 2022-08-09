@@ -124,7 +124,7 @@ async def doc(bot,update):
      media = getattr(file, file.media.value)
      c_thumb = THUMB_1
      new_cap = new_filename.replace("!", ".")
-     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**__{new_cap}__**\n\n**__Uploaded By : @MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
@@ -199,7 +199,7 @@ async def vid(bot,update):
      media = getattr(file, file.media.value)
      c_thumb = THUMB_1
      new_cap = new_filename.replace("!", ".")
-     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**__{new_cap}__**\n\nUploaded By : @MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
@@ -275,7 +275,7 @@ async def aud(bot,update):
      media = getattr(file, file.media.value)
      c_thumb = THUMB_1
      new_cap = new_filename.replace("!", ".")
-     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**__{new_cap}__**\n\n**__Uploaded By : @MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
@@ -351,7 +351,7 @@ async def doc2(bot,update):
      media = getattr(file, file.media.value)
      c_thumb = THUMB_2
      new_cap = new_filename.replace("!", ".")
-     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**__{new_cap}__**\n\n**__Uploaded By : @MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
@@ -426,7 +426,7 @@ async def vid2(bot,update):
      media = getattr(file, file.media.value)
      c_thumb = THUMB_2
      new_cap = new_filename.replace("!", ".")
-     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**__{new_cap}__**\n\n**__Uploaded By : @MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
@@ -502,7 +502,7 @@ async def aud2(bot,update):
      media = getattr(file, file.media.value)
      c_thumb = THUMB_2
      new_cap = new_filename.replace("!", ".")
-     caption = f"**{new_cap}**\n\n**__Uploaded By :__**\n**__@MovieJunctionGrp__** 🔥"
+     caption = f"**__{new_cap}__**\n\n**__Uploaded By : @MovieJunctionGrp__** 🔥"
      if (media.thumbs or c_thumb):
          if c_thumb:
             ph_path = await bot.download_media(c_thumb) 
