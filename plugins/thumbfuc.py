@@ -39,7 +39,7 @@ async def addthumbs(client,message):
         await message.reply_text(f"{a}")
 
 
-@Client.on_message(filters.group & filters.command(['viewthumb']))
+@Client.on_message(filters.group & filters.command(['seethumb']))
 async def show_thumb(bot, update):
     thumb_image_path = DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
     if not os.path.exists(thumb_image_path):
