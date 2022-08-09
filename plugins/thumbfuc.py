@@ -12,8 +12,8 @@ async def viewthumb(client,message):
 @Client.on_message(filters.group & filters.command(['delthumb']))
 async def removethumb(client,message):
     default = "AgACAgUAAxkBAAIDA2Lx1Kg46Cig-69wPdXhMn-c84KwAALCrjEbYFRoVXmxwmvZMLdHAAgBAAMCAAN5AAceBA"
-    addthumb(message.from_user.id, default))
-    await message.reply_text("**Custom Thumbnail Deleted Successfully**")
+    addthumb(message.from_user.id, default)
+    await message.reply_text("**set to default Thumbnail ✅**")
 	
 @Client.on_message(filters.group & filters.command(['addthumb']))
 async def addthumbs(client,message):
