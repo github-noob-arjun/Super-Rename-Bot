@@ -43,8 +43,6 @@ async def help(client, message):
 
 <i><b><u>My helps</u></b></i>
 
-**⚠️ First add thumbnail after Rename. Otherwise Rename not working..
-
 **You don't need to use any extension.
 If you want another extension use like this :-** `!AVC`
 
@@ -58,13 +56,13 @@ If you want another extension use like this :-** `!AVC`
 /start - check alive (in PM)
 /help - for this message (group only)
 
-<i><b><u>Thumbnail 1</u></b></i>
+<i><b>Thumbnail 1</b></i>
 /viewthumb1 - show thumbnail1
 /rename - Rename as document (group only)
 /rvid - Rename as stream file (group only)
 /raud - Rename as audio (group only)
 
-<i><b><u>Thumbnail 2</u></b></i>
+<i><b>Thumbnail 2</b></i>
 /viewthumb2 - show thumbnail2
 /rename2 - Rename as document (group only)
 /rvid2 - Rename as stream file (group only)
